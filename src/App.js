@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Menu from './Components/Menu';
+import NavBar from './Components/Navbar';
+import { Navbar, Nav } from 'react-bootstrap';
+import { useState } from 'react';
 
 function App() {
+  const [expanded, setExpanded] = useState(false);
+
+  const toggleNav = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar bg="light" expand="lg" expanded={expanded} onToggle={toggleNav}>
+        <Navbar.Brand href="#">JC's Cafe</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="#menu" onClick={toggleNav}>Menu</Nav.Link>
+            <Nav.Link href="#about" onClick={toggleNav}>About</Nav.Link>
+            <Nav.Link href="#contact" onClick={toggleNav}>Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Menu />
     </div>
   );
 }
 
 export default App;
+
