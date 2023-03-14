@@ -2,103 +2,72 @@ import React, { useState } from 'react';
 import $ from 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Menu() {
   const [activeIndex, setActiveIndex] = useState(-1);
 
-  const handleAccordionClick = (index) => {
+  function handleAccordionClick(index) {
     if (activeIndex === index) {
       setActiveIndex(-1);
     } else {
       setActiveIndex(index);
     }
-  };
+  }
 
   return (
-    <div>
-        <h1>Menu</h1>
-      <div id="accordion">
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div id="accordion" style={{ width: '80%' }}>
         <div className="card">
-          <div
-            className={`card-header ${activeIndex === 0 ? 'active' : ''}`}
-            onClick={() => handleAccordionClick(0)}
-          >
+          <div className="card-header" id="headingOne">
             <h5 className="mb-0">
-              <button className="btn btn-link">
+              <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded={activeIndex === 0} onClick={() => handleAccordionClick(0)}>
                 Appetizers
               </button>
             </h5>
           </div>
 
-          <div
-            className={`collapse ${activeIndex === 0 ? 'show' : ''}`}
-            data-parent="#accordion"
-          >
+          <div id="collapseOne" className={`collapse ${activeIndex === 0 ? 'show' : ''}`} aria-labelledby="headingOne" data-parent="#accordion">
             <div className="card-body">
-              <ul>
-                <li>Bruschetta</li>
-                <li>Caprese salad</li>
-                <li>Garlic bread</li>
-              </ul>
+              Appetizers menu items go here...
             </div>
           </div>
         </div>
 
         <div className="card">
-          <div
-            className={`card-header ${activeIndex === 1 ? 'active' : ''}`}
-            onClick={() => handleAccordionClick(1)}
-          >
+          <div className="card-header" id="headingTwo">
             <h5 className="mb-0">
-              <button className="btn btn-link">
+              <button className="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded={activeIndex === 1} onClick={() => handleAccordionClick(1)}>
                 Entrees
               </button>
             </h5>
           </div>
 
-          <div
-            className={`collapse ${activeIndex === 1 ? 'show' : ''}`}
-            data-parent="#accordion"
-          >
+          <div id="collapseTwo" className={`collapse ${activeIndex === 1 ? 'show' : ''}`} aria-labelledby="headingTwo" data-parent="#accordion">
             <div className="card-body">
-              <ul>
-                <li>Spaghetti Bolognese</li>
-                <li>Chicken Parmesan</li>
-                <li>Pizza Margherita</li>
-              </ul>
+              Entrees menu items go here...
             </div>
           </div>
         </div>
 
         <div className="card">
-          <div
-            className={`card-header ${activeIndex === 2 ? 'active' : ''}`}
-            onClick={() => handleAccordionClick(2)}
-          >
+          <div className="card-header" id="headingThree">
             <h5 className="mb-0">
-              <button className="btn btn-link">
+              <button className="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded={activeIndex === 2} onClick={() => handleAccordionClick(2)}>
                 Desserts
               </button>
             </h5>
           </div>
 
-          <div
-            className={`collapse ${activeIndex === 2 ? 'show' : ''}`}
-            data-parent="#accordion"
-          >
+          <div id="collapseThree" className={`collapse ${activeIndex === 2 ? 'show' : ''}`} aria-labelledby="headingThree" data-parent="#accordion">
             <div className="card-body">
-              <ul>
-                <li>Tiramisu</li>
-                <li>Cannoli</li>
-                <li>Gelato</li>
-              </ul>
+              Desserts menu items go here...
             </div>
           </div>
         </div>
       </div>
     </div>
-    );
-}    
+  );
+}
 
 export default Menu;

@@ -1,7 +1,6 @@
 body {
-background-color: #f3f3fd;
-opacity: 0.8;
-background-image:  repeating-linear-gradient(45deg, #f74545 25%, transparent 25%, transparent 75%, #f74545 75%, #f74545), repeating-linear-gradient(45deg, #f74545 25%, #f3f3fd 25%, #f3f3fd 75%, #f74545 75%, #f74545);
-background-position: 0 0, 22px 22px;
-background-size: 44px 44px;
+background-color: black; 
+background-image: url(/public/Beige\ minimalist\ photo\ collage.png);
+background-size: cover; /* Resize the background image to cover the entire container */
+background-position: center; /* Center the image */
 }
