@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Menu from './Components/Menu';
-import NavBar from './Components/Navbar';
+import Navbar from './Components/Navbar';
 import About from './Components/About';
 import { Navbar, Nav } from 'react-bootstrap';
 import { useState } from 'react';
@@ -28,7 +28,7 @@ function App() {
       </Navbar>
       <Menu />
       <About />
-      
+
     </div>
   );
 }
